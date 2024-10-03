@@ -15,20 +15,33 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Inventario implements Serializable {
-    public String marca;
-    public ArrayList<Vehiculo> unidades;
+    private String marca;
+    public ArrayList<Vehiculo> items;
 
-    public void agregar(Vehiculo unidad){
-        unidades.add(unidad);
+    public Inventario(String marca){
+        setMarca(marca);
+        this.items = new ArrayList<>();
     }
 
-    public void listar(Impresora impresora, Vehiculo unidad){
-        for(Vehiculo vehiculo : unidades) {
+    public void agregar(Vehiculo vehiculo){
+        items.add(vehiculo);
+    }
+
+    public void listar(Impresora impresora){
+        for(Vehiculo vehiculo : items) {
             impresora.imprimir(vehiculo.toString());
         }
     }
 
-/*
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    /*
     public void grabar(){
         ObjectInputStream  outFile;
         String ser;

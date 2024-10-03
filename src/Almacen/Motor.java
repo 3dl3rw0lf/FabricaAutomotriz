@@ -18,4 +18,10 @@ public class Motor extends Componente{
         this.cantidadCilindros = cantidadCilindros;
         this.cilindrada = cilindrada;
     }
+
+    @Override
+    public String toString() {
+        return "Motor con "+ cantidadCilindros + "cilindros, con " + cilindrada + " de cilindrada."+
+                "número de motor N°:" + numero + "con un precio de " + precio + ".";
+    }
 }

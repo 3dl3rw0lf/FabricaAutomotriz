@@ -18,4 +18,6 @@ public abstract class Componente {
         this.numero = numero;
         this.precio = precio;
     }
+
+    // TODO: hacer método mostrarDatos
 }
