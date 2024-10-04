@@ -11,12 +11,13 @@
 import Almacen.Inventario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class GUI extends JFrame {
-    private JPanel contentPane;
+    private Container contentPane;
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
@@ -35,6 +36,16 @@ public class GUI extends JFrame {
 
 
     public GUI() {
+        super("Fábrica Automotriz");
+
+        contentPane  = getContentPane();
+        contentPane.add(marcaTextField);
+        contentPane.add(crearObjetoButton);
+
+        setSize(777, 777);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        add(marcaTextField);
         //TODO: NOTE se crea un inventario con la marca obtenida del campo marca
         Inventario inv = new Inventario(marcaTextField.getText());
 
