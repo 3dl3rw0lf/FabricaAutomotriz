@@ -13,8 +13,8 @@ public class Motor extends Componente{
     public int cantidadCilindros;
     public int cilindrada;
 
-    public Motor(int cantidadCilindros, int cilindrada, Integer numero, float precio) {
-        super(numero, precio);
+    public Motor(int cantidadCilindros, int cilindrada, float precio) {
+        super(precio);
         this.cantidadCilindros = cantidadCilindros;
         this.cilindrada = cilindrada;
     }

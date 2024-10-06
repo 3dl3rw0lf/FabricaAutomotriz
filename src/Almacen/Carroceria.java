@@ -13,8 +13,8 @@ public class Carroceria extends Componente{
     public String descripcion;
     public String color;
 
-    public Carroceria(String descripcion, String color, Integer numero, float precio){
-        super(numero, precio);
+    public Carroceria(String descripcion, String color, float precio){
+        super(precio);
         this.descripcion = descripcion;
         this.color = color;
     }

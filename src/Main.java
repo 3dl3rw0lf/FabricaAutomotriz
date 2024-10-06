@@ -9,7 +9,9 @@
  * Copyright (c) 2024
  *
  */
+import Almacen.Carroceria;
 import Almacen.Inventario;
+import Almacen.Motor;
 import Almacen.Vehiculo;
 import Dispositivo.Impresora;
 
@@ -27,5 +29,13 @@ public class Main {
         inventarios.add(invetarioRenault);
 
         Impresora.imprimir(inventarioFord.getMarca());*/
+
+        Motor motor = new Motor(4,4000,6500f);
+        String stringMotor = motor.toString();
+        System.out.println(stringMotor);
+
+        Carroceria carroceria = new Carroceria("Hull", "azul", 7777f);
+        String stringCarroceria = carroceria.toString();
+        System.out.println(stringCarroceria);
     }
 }
