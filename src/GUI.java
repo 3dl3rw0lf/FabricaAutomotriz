@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class GUI extends JFrame {
     private JPanel panel;
-    private JTextField textField1;
-    private JTextField textField2;
+    // private JTextField cantidadCilindrosTextField;
+    private JTextField cilindradaTextField;
     private JTextField textField3;
     private JLabel marcaLabel;
     private JTextField marcaTextField;
@@ -30,9 +30,10 @@ public class GUI extends JFrame {
     private JList inventariosList;
     private DefaultListModel<String> listModel;
     private JButton agregarAlInventarioButton;
-    private JLabel uno;
+    private JLabel cantidadDeCilindrosLabel;
     private JLabel tres;
-    private JLabel dos;
+    private JLabel cilindradaLabel;
+    private JComboBox<String> cantidadCilindrosComboBox;
 
     //TODO: hacer muchos inventarios
     private ArrayList<Inventario> inventarios = new ArrayList<>();
@@ -41,6 +42,23 @@ public class GUI extends JFrame {
     public GUI() {
         super("Fábrica Automotriz");
 
+
+        cantidadCilindrosComboBox.addItem("4");
+        cantidadCilindrosComboBox.addItem("6");
+        cantidadCilindrosComboBox.addItem("8");
+        cantidadCilindrosComboBox.addItem("12");
+        cantidadCilindrosComboBox.addItem("16");
+
+        //  4 cilindros
+        // 1.3
+        // 1.4
+        // 1.6
+        // 1.8
+        // 2.0
+        // 2.5
+
+        // 6 cilindros
+        // 3.6
         setContentPane(panel);
         setSize(760, 319);
         setVisible(true);
@@ -106,6 +124,8 @@ public class GUI extends JFrame {
                 }
             }
         });
+
+        
     }
 
     private void inicializarVisibilidad(){
@@ -115,10 +135,10 @@ public class GUI extends JFrame {
         marcaLabel.setVisible(false);
         marcaTextField.setVisible(false);
         agregarAlInventarioButton.setVisible(false);
-        uno.setVisible(false);
-        textField1.setVisible(false);
-        dos.setVisible(false);
-        textField2.setVisible(false);
+        cantidadDeCilindrosLabel.setVisible(false);
+        cantidadCilindrosComboBox.setVisible(false);
+        cilindradaLabel.setVisible(false);
+        cilindradaTextField.setVisible(false);
         tres.setVisible(false);
         textField3.setVisible(false);
         agregarAutoAlInventarioButton.setVisible(false);
@@ -129,10 +149,10 @@ public class GUI extends JFrame {
     }
 
     private void mostrarCamposAuto(){
-        uno.setVisible(true);
-        textField1.setVisible(true);
-        dos.setVisible(true);
-        textField2.setVisible(true);
+        cantidadDeCilindrosLabel.setVisible(true);
+        cantidadCilindrosComboBox.setVisible(true);
+        cilindradaLabel.setVisible(true);
+        cilindradaTextField.setVisible(true);
         tres.setVisible(true);
         textField3.setVisible(true);
         agregarAutoAlInventarioButton.setVisible(true);
@@ -151,10 +171,10 @@ public class GUI extends JFrame {
         inventariosList.setVisible(true);
         mostrarInventarioButton.setVisible(true);
 
-        uno.setVisible(false);
-        textField1.setVisible(false);
-        dos.setVisible(false);
-        textField2.setVisible(false);
+        cantidadDeCilindrosLabel.setVisible(false);
+        cantidadCilindrosComboBox.setVisible(false);
+        cilindradaLabel.setVisible(false);
+        cilindradaTextField.setVisible(false);
         tres.setVisible(false);
         textField3.setVisible(false);
         agregarAutoAlInventarioButton.setVisible(false);

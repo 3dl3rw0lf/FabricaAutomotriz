@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="9" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="842" height="349"/>
+      <xy x="20" y="20" width="842" height="363"/>
     </constraints>
     <properties>
       <foreground color="-16403995"/>
@@ -12,7 +12,7 @@
       <font name="JetBrains Mono NL"/>
     </border>
     <children>
-      <component id="25872" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="25872" class="javax.swing.JTextField" binding="cilindradaTextField">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -29,17 +29,6 @@
           </grid>
         </constraints>
         <properties>
-          <font name="JetBrains Mono NL"/>
-        </properties>
-      </component>
-      <component id="ccbcd" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <enabled value="true"/>
           <font name="JetBrains Mono NL"/>
         </properties>
       </component>
@@ -70,22 +59,22 @@
           <text value="Mostrar Inventario"/>
         </properties>
       </component>
-      <component id="39ee9" class="javax.swing.JLabel" binding="uno">
+      <component id="39ee9" class="javax.swing.JLabel" binding="cantidadDeCilindrosLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono NL"/>
-          <text value="Uno"/>
+          <text value="Cantidad de cilindros"/>
         </properties>
       </component>
-      <component id="f9882" class="javax.swing.JLabel" binding="dos">
+      <component id="f9882" class="javax.swing.JLabel" binding="cilindradaLabel">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono NL"/>
-          <text value="Dos"/>
+          <text value="Cilindrada"/>
         </properties>
       </component>
       <component id="87da3" class="javax.swing.JLabel" binding="tres">
@@ -97,16 +86,6 @@
           <text value="Tres"/>
         </properties>
       </component>
-      <component id="e8663" class="javax.swing.JTextField" binding="marcaTextField">
-        <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <font name="JetBrains Mono NL"/>
-        </properties>
-      </component>
       <component id="34c06" class="javax.swing.JLabel" binding="marcaLabel">
         <constraints>
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -114,27 +93,6 @@
         <properties>
           <font name="JetBrains Mono NL"/>
           <text value="Marca"/>
-        </properties>
-      </component>
-      <component id="53150" class="javax.swing.JButton" binding="agregarAlInventarioButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="JetBrains Mono NL"/>
-          <text value="Agregar al Inventario"/>
-        </properties>
-      </component>
-      <component id="99839" class="javax.swing.JTextArea" binding="textVehiculos">
-        <constraints>
-          <grid row="2" column="2" row-span="6" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties>
-          <font name="JetBrains Mono NL"/>
-          <margin top="3" left="3" bottom="3" right="3"/>
-          <text value=""/>
         </properties>
       </component>
       <component id="9443e" class="javax.swing.JList" binding="inventariosList">
@@ -145,14 +103,51 @@
         </constraints>
         <properties/>
       </component>
+      <component id="53150" class="javax.swing.JButton" binding="agregarAlInventarioButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono NL"/>
+          <text value="Agregar al Inventario"/>
+        </properties>
+      </component>
+      <component id="e8663" class="javax.swing.JTextField" binding="marcaTextField">
+        <constraints>
+          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono NL"/>
+        </properties>
+      </component>
       <component id="801d6" class="javax.swing.JRadioButton" binding="claseInventario">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono NL" style="1"/>
           <text value="Inventario"/>
         </properties>
+      </component>
+      <component id="99839" class="javax.swing.JTextArea" binding="textVehiculos">
+        <constraints>
+          <grid row="2" column="3" row-span="6" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono NL"/>
+          <margin top="3" left="3" bottom="3" right="3"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="c94fa" class="javax.swing.JComboBox" binding="cantidadCilindrosComboBox">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
