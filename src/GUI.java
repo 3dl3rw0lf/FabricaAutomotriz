@@ -8,7 +8,7 @@
  * Copyright (c) 2024
  */
 
-import Almacen.Inventario;
+import Almacen.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +41,7 @@ public class GUI extends JFrame {
     private JTextField marcaTextField;
     private JTextArea textVehiculos;
     private JButton agregarAutoAlInventarioButton;
-    private JButton mostrarInventarioButton;
+    private JButton actualizarInventarioButton;
     private JList inventariosList;
     private DefaultListModel<String> listModel;
     private JButton agregarAlInventarioButton;
@@ -143,7 +143,7 @@ public class GUI extends JFrame {
             }
         });
 
-        mostrarInventarioButton.addActionListener(new ActionListener() {
+        actualizarInventarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Estoy inseguro de querer limpiar el modelo
@@ -164,6 +164,69 @@ public class GUI extends JFrame {
             }
         });
 
+        agregarAutoAlInventarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String descripcionCarroceria = (String) descripcionCarroceriaComboBox.getSelectedItem();
+                    String colorCarroceria = (String) colorCarroceriaComboBox.getSelectedItem();
+                    float precioCarroceria = ((Number) precioCarroceriaJSpinner.getValue()).floatValue();
+
+                    Carroceria carroceria = new Carroceria(descripcionCarroceria, colorCarroceria, precioCarroceria);
+
+                    int cilindros = Integer.parseInt((String) cantidadCilindrosComboBox.getSelectedItem());
+                    float cilindradaLitros = Float.parseFloat((String) cilindradaComboBox.getSelectedItem());
+                    int cilindrada = (int) (cilindradaLitros * 1000);
+                    float precioMotor = ((Number) precioMotorJSpinner.getValue()).floatValue();
+
+                    Motor motor = new Motor(cilindros, cilindrada, precioMotor);
+
+                    Vehiculo vehiculo = new Vehiculo(motor, carroceria, 1000);
+
+                    int selectedInventarioIndex = inventariosList.getSelectedIndex();
+                    if (selectedInventarioIndex != -1) {
+                        Inventario inventarioSeleccionado = inventarios.get(selectedInventarioIndex);
+                        inventarioSeleccionado.agregar(vehiculo);
+                        JOptionPane.showMessageDialog(panel, "Vehículo agregado al inventario: " + inventarioSeleccionado.getMarca());
+                        mostrarDatosVehiculo(vehiculo);
+                    } else {
+                        JOptionPane.showMessageDialog(panel, "Seleccione un inventario para agregar el vehículo.");
+                    }
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(panel, "Error al crear el vehículo: " + ex.getMessage());
+                }
+            }
+
+            private void mostrarDatosVehiculo(Vehiculo vehiculo) {
+                // Construir la cadena de información del vehículo
+                StringBuilder datos = new StringBuilder();
+
+                datos.append("---- Vehículo ----\n");
+                datos.append("Peso: ").append(vehiculo.getPeso()).append(" kg\n");
+
+                for (Componente parte : vehiculo.getPartes()) {
+                    if (parte instanceof Motor) {
+                        Motor motor = (Motor) parte;
+                        datos.append("Motor:\n");
+                        datos.append("  Cilindros: ").append(motor.getCantidadCilindros()).append("\n");
+                        datos.append("  Cilindrada: ").append(motor.getCilindrada()).append(" cc\n");
+                        datos.append("  Precio: $").append(motor.getPrecio()).append("\n");
+                    } else if (parte instanceof Carroceria) {
+                        Carroceria carroceria = (Carroceria) parte;
+                        datos.append("Carrocería:\n");
+                        datos.append("  Descripción: ").append(carroceria.getDescripcion()).append("\n");
+                        datos.append("  Color: ").append(carroceria.getColor()).append("\n");
+                        datos.append("  Precio: $").append(carroceria.getPrecio()).append("\n");
+                    }
+                }
+
+                datos.append("------------------\n");
+
+                // Mostrar los datos en el JTextArea
+                textVehiculos.append(datos.toString());
+            }
+        });
     }
 
     private void inicializarVisibilidad(){
@@ -177,7 +240,7 @@ public class GUI extends JFrame {
         agregarAutoAlInventarioButton.setVisible(false);
         marcaLabel.setVisible(false);
         marcaTextField.setVisible(false);
-        mostrarInventarioButton.setVisible(false);
+        actualizarInventarioButton.setVisible(false);
         inventariosList.setVisible(false);
         textVehiculos.setVisible(false);
         agregarAlInventarioButton.setVisible(false);
@@ -187,16 +250,18 @@ public class GUI extends JFrame {
     private void mostrarCamposAuto(){
 
         motorVisibleTrue();
-
         carroceriaVisibleTrue();
-
         agregarAutoAlInventarioButton.setVisible(true);
-
+        textVehiculos.setVisible(true);
         marcaLabel.setVisible(false);
         marcaTextField.setVisible(false);
         agregarAlInventarioButton.setVisible(false);
-        inventariosList.setVisible(false);
-        mostrarInventarioButton.setVisible(false);
+        if (inventariosList.getModel().getSize() == 0 ){
+            inventariosList.setVisible(false);
+        } else {
+            inventariosList.setVisible(true);
+        }
+        actualizarInventarioButton.setVisible(false);
     }
 
     private void mostrarCamposInventario(){
@@ -204,12 +269,13 @@ public class GUI extends JFrame {
         marcaTextField.setVisible(true);
         agregarAlInventarioButton.setVisible(true);
         inventariosList.setVisible(true);
-        mostrarInventarioButton.setVisible(true);
+        actualizarInventarioButton.setVisible(true);
 
         motorVisibleFalse();
 
         carroceriaVisibleFalse();
 
+        textVehiculos.setVisible(false);
         agregarAutoAlInventarioButton.setVisible(false);
     }
 

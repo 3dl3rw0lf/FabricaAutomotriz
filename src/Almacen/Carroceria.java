@@ -27,4 +27,12 @@ public class Carroceria extends Componente{
                 ", numero=" + numero +
                 ", precio=" + precio;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getColor() {
+        return color;
+    }
 }

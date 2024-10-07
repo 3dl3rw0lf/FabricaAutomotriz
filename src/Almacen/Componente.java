@@ -41,4 +41,14 @@ public abstract class Componente {
     }
 
     // TODO: hacer método mostrarDatos
+
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
 }
