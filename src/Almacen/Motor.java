@@ -21,8 +21,8 @@ public class Motor extends Componente{
 
     @Override
     public String toString() {
-        return "Motor con "+ cantidadCilindros + "cilindros, con " + cilindrada + " de cilindrada."+
-                "número de motor N°:" + numero + "con un precio de " + precio + ".";
+        return ("Motor:\n" + "  Cilindros: " + this.getCantidadCilindros() + "\n" +"  Cilindrada: "
+                + this.getCilindrada() + " cc\n" + "  Precio: $" +this.getPrecio()+ "\n");
     }
 
     public int getCantidadCilindros() {

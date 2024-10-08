@@ -26,11 +26,10 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo" +
-                ", peso=" + peso;
+        return ("---- Vehículo ----\n"+"Peso: "+ this.getPeso()+" kg\n"+"Precio: $"+this.getPrecio()+"\n");
     }
 
-    public float calcularPrecio(){
+    public float getPrecio(){
         return (partes[0].precio + partes[1].precio) * 2.5f;
     }
 

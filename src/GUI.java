@@ -199,25 +199,17 @@ public class GUI extends JFrame {
             }
 
             private void mostrarDatosVehiculo(Vehiculo vehiculo) {
-                // Construir la cadena de información del vehículo
                 StringBuilder datos = new StringBuilder();
-
-                datos.append("---- Vehículo ----\n");
-                datos.append("Peso: ").append(vehiculo.getPeso()).append(" kg\n");
+                // TODO: agregar datos inventario
+                datos.append(vehiculo);
 
                 for (Componente parte : vehiculo.getPartes()) {
                     if (parte instanceof Motor) {
                         Motor motor = (Motor) parte;
-                        datos.append("Motor:\n");
-                        datos.append("  Cilindros: ").append(motor.getCantidadCilindros()).append("\n");
-                        datos.append("  Cilindrada: ").append(motor.getCilindrada()).append(" cc\n");
-                        datos.append("  Precio: $").append(motor.getPrecio()).append("\n");
+                        datos.append(motor);
                     } else if (parte instanceof Carroceria) {
                         Carroceria carroceria = (Carroceria) parte;
-                        datos.append("Carrocería:\n");
-                        datos.append("  Descripción: ").append(carroceria.getDescripcion()).append("\n");
-                        datos.append("  Color: ").append(carroceria.getColor()).append("\n");
-                        datos.append("  Precio: $").append(carroceria.getPrecio()).append("\n");
+                        datos.append(carroceria);
                     }
                 }
 

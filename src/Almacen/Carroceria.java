@@ -21,11 +21,8 @@ public class Carroceria extends Componente{
 
     @Override
     public String toString() {
-        return "Carroceria:" +
-                "descripcion='" + descripcion + '\'' +
-                ", color='" + color + '\'' +
-                ", numero=" + numero +
-                ", precio=" + precio;
+        return ("Carrocería:\n" + "  Descripción: " + this.getDescripcion() + "\n" +
+                "  Color: " + this.getColor() + "\n" + "  Precio: $" + this.getPrecio() + "\n");
     }
 
     public String getDescripcion() {
