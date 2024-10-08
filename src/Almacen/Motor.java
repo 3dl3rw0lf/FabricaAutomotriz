@@ -13,15 +13,23 @@ public class Motor extends Componente{
     public int cantidadCilindros;
     public int cilindrada;
 
-    public Motor(int cantidadCilindros, int cilindrada, Integer numero, float precio) {
-        super(numero, precio);
+    public Motor(int cantidadCilindros, int cilindrada, float precio) {
+        super(precio);
         this.cantidadCilindros = cantidadCilindros;
         this.cilindrada = cilindrada;
     }
 
     @Override
     public String toString() {
-        return "Motor con "+ cantidadCilindros + "cilindros, con " + cilindrada + " de cilindrada."+
-                "número de motor N°:" + numero + "con un precio de " + precio + ".";
+        return ("Motor:\n" + "  Cilindros: " + this.getCantidadCilindros() + "\n" +"  Cilindrada: "
+                + this.getCilindrada() + " cc\n" + "  Precio: $" +this.getPrecio()+ "\n");
+    }
+
+    public int getCantidadCilindros() {
+        return cantidadCilindros;
+    }
+
+    public int getCilindrada() {
+        return cilindrada;
     }
 }

@@ -12,31 +12,32 @@ package Almacen;
 import java.util.ArrayList;
 
 public class Vehiculo {
-    public String marca;
-    public String modelo;
     public int peso;
-    public ArrayList<Componente> partes;
+    public Componente[] partes = new Componente[2];
     // public Componente motor;
     // public Componente carroceria;
 
     // TODO: sacar marca
-    public Vehiculo(String marca, String modelo, int peso) {
-        this.marca = marca;
-        this.modelo = modelo;
+    public Vehiculo(Motor motor, Carroceria carroceria, int peso) {
         this.peso = peso;
-        partes = new ArrayList<>();
-       // motor = new Motor(4,1500,3,7777.77f);// carroceria = new Carroceria("Sedan", "azul", 7,9734.43f);
+        partes[0] = motor;
+        partes[1] = carroceria;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo" +
-                "marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", peso=" + peso;
+        return ("---- Vehículo ----\n"+"Peso: "+ this.getPeso()+" kg\n"+"Precio: $"+this.getPrecio()+"\n");
     }
 
-    public float calcularPrecio(){
-        return (float) 0;
+    public float getPrecio(){
+        return (partes[0].precio + partes[1].precio) * 2.5f;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public Componente[] getPartes() {
+        return partes;
     }
 }
