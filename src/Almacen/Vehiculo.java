@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Vehiculo {
     public int peso;
     public Componente[] partes = new Componente[2];
-    // public Componente motor;
-    // public Componente carroceria;
+    private Inventario inventarioAsignado;
+
 
     // TODO: sacar marca
     public Vehiculo(Motor motor, Carroceria carroceria, int peso) {
@@ -26,7 +26,12 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return ("---- Vehículo ----\n"+"Peso: "+ this.getPeso()+" kg\n"+"Precio: $"+this.getPrecio()+"\n");
+        return ("---- Vehículo ----\n"+"Inventario: " + inventarioAsignado.getMarca()+"\n"+
+                "Peso: "+ this.getPeso()+" kg\n"+"Precio: $"+this.getPrecio()+"\n");
+    }
+
+    public void setInventarioAsignado(Inventario inventarioAsignado) {
+        this.inventarioAsignado = inventarioAsignado;
     }
 
     public float getPrecio(){

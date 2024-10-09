@@ -25,6 +25,7 @@ public class Inventario implements Serializable {
 
     public void agregar(Vehiculo vehiculo){
         items.add(vehiculo);
+        vehiculo.setInventarioAsignado(this);
     }
 
     public void listar(Impresora impresora){

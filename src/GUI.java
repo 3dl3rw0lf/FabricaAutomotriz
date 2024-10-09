@@ -2,7 +2,7 @@
  * Project: FabricaAutomotriz
  * Package: PACKAGE_NAME
  * Class: GUI
- * Version: 1.1
+ * Version: 1.2.0
  * Date: 02/10/2024 19:39
  * Author: Gustavo Aráuz
  * Copyright (c) 2024
@@ -225,9 +225,9 @@ public class GUI extends JFrame {
         claseAuto.setVisible(true);
         claseInventario.setVisible(true);
 
-        motorVisibleFalse();
+        motorVisible(false);
 
-        carroceriaVisibleFalse();
+        carroceriaVisible(false);
 
         agregarAutoAlInventarioButton.setVisible(false);
         marcaLabel.setVisible(false);
@@ -241,8 +241,10 @@ public class GUI extends JFrame {
 
     private void mostrarCamposAuto(){
 
-        motorVisibleTrue();
-        carroceriaVisibleTrue();
+        motorVisible(true);
+
+        carroceriaVisible(true);
+
         agregarAutoAlInventarioButton.setVisible(true);
         textVehiculos.setVisible(true);
         marcaLabel.setVisible(false);
@@ -263,9 +265,9 @@ public class GUI extends JFrame {
         inventariosList.setVisible(true);
         actualizarInventarioButton.setVisible(true);
 
-        motorVisibleFalse();
+        motorVisible(false);
 
-        carroceriaVisibleFalse();
+        carroceriaVisible(false);
 
         textVehiculos.setVisible(false);
         agregarAutoAlInventarioButton.setVisible(false);
@@ -275,44 +277,24 @@ public class GUI extends JFrame {
         inventariosList = new JList<>();
     }
 
-    public void motorVisibleFalse(){
-        motorJLabel.setVisible(false);
-        cilindradaLabel.setVisible(false);
-        cilindradaComboBox.setVisible(false);
-        cantidadDeCilindrosLabel.setVisible(false);
-        cantidadCilindrosComboBox.setVisible(false);
-        precioMotorJLabel.setVisible(false);
-        precioMotorJSpinner.setVisible(false);
+    public void motorVisible(Boolean booleanM){
+        motorJLabel.setVisible(booleanM);
+        cilindradaLabel.setVisible(booleanM);
+        cilindradaComboBox.setVisible(booleanM);
+        cantidadDeCilindrosLabel.setVisible(booleanM);
+        cantidadCilindrosComboBox.setVisible(booleanM);
+        precioMotorJLabel.setVisible(booleanM);
+        precioMotorJSpinner.setVisible(booleanM);
     }
 
-    public void motorVisibleTrue(){
-        motorJLabel.setVisible(true);
-        cantidadDeCilindrosLabel.setVisible(true);
-        cantidadCilindrosComboBox.setVisible(true);
-        cilindradaLabel.setVisible(true);
-        cilindradaComboBox.setVisible(true);
-        precioMotorJLabel.setVisible(true);
-        precioMotorJSpinner.setVisible(true);
-    }
-
-    public void carroceriaVisibleFalse(){
-        carroceriaJLabel.setVisible(false);
-        descripcionCarroceriaJlabel.setVisible(false);
-        descripcionCarroceriaComboBox.setVisible(false);
-        colorCarroceriaJLabel.setVisible(false);
-        colorCarroceriaComboBox.setVisible(false);
-        precioCarroceriaJLabel.setVisible(false);
-        precioCarroceriaJSpinner.setVisible(false);
-    }
-
-    public void carroceriaVisibleTrue(){
-        carroceriaJLabel.setVisible(true);
-        descripcionCarroceriaJlabel.setVisible(true);
-        descripcionCarroceriaComboBox.setVisible(true);
-        colorCarroceriaJLabel.setVisible(true);
-        colorCarroceriaComboBox.setVisible(true);
-        precioCarroceriaJLabel.setVisible(true);
-        precioCarroceriaJSpinner.setVisible(true);
+    public void carroceriaVisible(Boolean booleanC){
+        carroceriaJLabel.setVisible(booleanC);
+        descripcionCarroceriaJlabel.setVisible(booleanC);
+        descripcionCarroceriaComboBox.setVisible(booleanC);
+        colorCarroceriaJLabel.setVisible(booleanC);
+        colorCarroceriaComboBox.setVisible(booleanC);
+        precioCarroceriaJLabel.setVisible(booleanC);
+        precioCarroceriaJSpinner.setVisible(booleanC);
     }
 
     public static void main(String[] args) {
