@@ -53,7 +53,6 @@ public class GUI extends JFrame {
     public GUI() {
         super("Fábrica Automotriz");
 
-
         cantidadCilindrosComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,7 +96,6 @@ public class GUI extends JFrame {
                 }
             }
         });
-
 
         setContentPane(panel);
         setSize(907, 358);

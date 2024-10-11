@@ -9,10 +9,11 @@
  */
 package Almacen;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Random;
 
-public abstract class Componente {
+public abstract class Componente implements Serializable {
     public Integer numero;
     public float precio;
 

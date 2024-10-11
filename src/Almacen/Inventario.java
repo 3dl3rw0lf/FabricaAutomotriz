@@ -42,21 +42,28 @@ public class Inventario implements Serializable {
         return marca;
     }
 
-    /*
-    public void grabar(){
-        ObjectInputStream  outFile;
-        String ser;
-
-        for( it:item){
-            String destino = "C:\\";
-            try{
-                outFile = new ObjectInputStream(new FileInputStream(destino));
-                outFile.writeObject((Object)(Vehiculo) item.get(i)));
-            } catch (FileNotFoundException e) {
+    public void grabar() {
+        try {
+            String rutaArchivo ="\\";
+            ObjectOutputStream outFile = new ObjectOutputStream(new FileOutputStream(rutaArchivo));
+            outFile.writeObject(this);
+            System.out.println("Inventario guardado correctamente.");
+        } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
-            } catch (IOException e) {
+        } catch (IOException e) {
                 throw new RuntimeException(e);
-            }
         }
-    }*/
+    }
+
+    public static Inventario cargar() {
+        try {
+            String rutaArchivo = "\\";
+            ObjectInputStream inFile = new ObjectInputStream(new FileInputStream(rutaArchivo));
+            return (Inventario) inFile.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
